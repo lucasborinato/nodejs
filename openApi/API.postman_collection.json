@@ -1,0 +1,308 @@
+{
+	"info": {
+		"_postman_id": "49b3d973-795f-4168-9867-263a984d8563",
+		"name": "API",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Produto",
+			"item": [
+				{
+					"name": "Consultar Produtos",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{host}}/api/produto",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"api",
+								"produto"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Consultar Produto por Id",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{host}}/api/produto/607b829c032d9c53aea49a60",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"api",
+								"produto",
+								"607b829c032d9c53aea49a60"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Incluir Produto",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"descricao\": \"descricao postman\",\n    \"peso\": \"peso postman\",\n    \"valor\": \"valor postman\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{host}}/api/produto",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"api",
+								"produto"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Alterar Produto por Id",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"descricao\": \"alterou descricao\",\n    \"peso\": \"alterou peso\",\n    \"valor\": \"alterou valor\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{host}}/api/produto/607b885e6181135405aebcb6",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"api",
+								"produto",
+								"607b885e6181135405aebcb6"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Deletar Produto por Id",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{host}}/api/produto/607b864781a7f553e751b8cc",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"api",
+								"produto",
+								"607b864781a7f553e751b8cc"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Usuario",
+			"item": [
+				{
+					"name": "Consultar Usuarios",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{host}}/api/usuario",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"api",
+								"usuario"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Consultar Usuario por Id",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{host}}/api/usuario/607c84cddae450783264b929",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"api",
+								"usuario",
+								"607c84cddae450783264b929"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Incluir Usuario",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"login\": \"login\",\n    \"senha\": \"senha\",\n    \"nome\": \"nome\",\n    \"email\": \"email\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{host}}/api/usuario",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"api",
+								"usuario"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Alterar Usuario por Id",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"login\": \"login alterado\",\n    \"senha\": \"senha alterada\",\n    \"nome\": \"nome alterado\",\n    \"email\": \"email alterado\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{host}}/api/usuario/607c84cddae450783264b929",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"api",
+								"usuario",
+								"607c84cddae450783264b929"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Deletar Usuario por Id",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{host}}/api/usuario/607c84cddae450783264b929",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"api",
+								"usuario",
+								"607c84cddae450783264b929"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Login",
+			"item": [
+				{
+					"name": "Efetuar Login",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"login\": \"login\",\n    \"senha\": \"senha\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{host}}/api/usuario/login",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"api",
+								"usuario",
+								"login"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Efetuar Logout",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJub21lIjoibm9tZSIsImVtYWlsIjoiZW1haWwiLCJpYXQiOjE2MTg5NTYyMjksImV4cCI6MTYxODk1NjUyOX0.OXrZ-r0yI0JvuqrXw-k727YY4GPNU14t5wgwZlzZF4o",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{host}}/api/usuario/logout",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"api",
+								"usuario",
+								"logout"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}

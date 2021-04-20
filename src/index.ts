@@ -1,10 +1,14 @@
 import express from 'express'
 import mongoose from 'mongoose'
 import { json } from 'body-parser'
+import * as dotenv from 'dotenv';
+
 import { produtoRouter } from './routes/produto';
+import { usuarioRouter } from './routes/usuario';
 
 const app = express();
 app.use(json());
+dotenv.config();
 
 app.use(function (req, res, next) {
 
@@ -26,15 +30,16 @@ app.use(function (req, res, next) {
 });
 
 app.use(produtoRouter);
+app.use(usuarioRouter);
 
-mongoose.connect('mongodb://localhost:27017/adega', {
+mongoose.connect(`mongodb://${process.env.MONGO_IP}:27017/${process.env.BD}`, {
     useCreateIndex: true,
     useNewUrlParser: true,
     useUnifiedTopology: true
 }, () => {
-    console.log('connected to database')
+    console.log('connected to database', process.env.BD)
 })
 
-app.listen(3000, () => {
-    console.log('server ins listening on port 3000')
+app.listen(process.env.API_PORT, () => {
+    console.log('server ins listening on port', process.env.API_PORT);
 });

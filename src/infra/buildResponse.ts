@@ -25,7 +25,7 @@ function buildResponse(res: Response, entrada: any) {
     if (entrada?.dados) {
         saida.dados = entrada.dados;
     } 
-
+    
     return res.status(httpStatus).json(saida);
 };
 
