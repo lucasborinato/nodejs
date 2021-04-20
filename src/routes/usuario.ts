@@ -68,17 +68,28 @@ router.post('/api/usuario', async (req: Request, res: Response) => {
             throw 'Campo "e-mail" precisa ser informado';
         }
 
-        const body = req.body;
+        const body: IUsuario = req.body;
 
-        const usuario: IUsuario = new Usuario({
-            login: body.login,
-            senha: body.senha,
-            nome: body.nome,
-            email: body.email
-        });
+        await Usuario.findOne({ 'login': body.login })
+            .then(async dados => {
+                if (dados) {
+                    throw 'Login já está sendo utilizado. Por favor informar outro Login';
+                }
 
-        await usuario.save();
-        buildResponse(res, { msg: 'Usuário incluído com sucesso' });
+                const usuario: IUsuario = new Usuario({
+                    login: body.login,
+                    senha: body.senha,
+                    nome: body.nome,
+                    email: body.email
+                });
+
+                await usuario.save();
+                buildResponse(res, { msg: 'Usuário incluído com sucesso' });
+            })
+            .catch(err => {
+                throw err;
+            });
+
     } catch (err) {
         buildResponse(res, { err });
     }
