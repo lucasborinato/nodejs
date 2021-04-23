@@ -15,7 +15,10 @@ function ValidateJWTMiddleware(req: Request, res: Response, next: NextFunction) 
     // Efetuando a validação do JWT:
     jsonWebToken.verify(jwt, chavePrivada, (err, jwtPayload) => {
         if (err) {
-            res.status(403).end('');
+            console.error('JWT inválido', err);
+            res
+                .status(403)
+                .end('JWT Inválido');
             return;
         }
 
