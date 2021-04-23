@@ -1,7 +1,7 @@
-import express from 'express'
-import mongoose from 'mongoose'
-import { json } from 'body-parser'
+import { json } from 'body-parser';
 import * as dotenv from 'dotenv';
+import express from 'express';
+import mongoose from 'mongoose';
 
 import { produtoRouter } from './routes/produto';
 import { usuarioRouter } from './routes/usuario';
@@ -11,7 +11,7 @@ app.use(json());
 dotenv.config();
 
 app.use(function (req, res, next) {
-  
+
     // Website you wish to allow to connect
     res.setHeader('Access-Control-Allow-Origin', '*');
 
@@ -32,14 +32,21 @@ app.use(function (req, res, next) {
 app.use(produtoRouter);
 app.use(usuarioRouter);
 
-mongoose.connect(`mongodb://${process.env.MONGO_IP}:27017/${process.env.BD}`, {
+const stringDeConexao =
+    `mongodb://${process.env.MONGO_IP}:27017/${process.env.BD}`;
+
+mongoose.connect(stringDeConexao, {
     useCreateIndex: true,
     useNewUrlParser: true,
     useUnifiedTopology: true
-}, () => {
-    console.log('connected to database', process.env.BD)
-})
+}).then(() => {
+    console.log('connected to database', process.env.BD);
 
-app.listen(process.env.API_PORT, () => {
-    console.log('server ins listening on port', process.env.API_PORT);
+    app.listen(process.env.API_PORT, () => {
+        console.log('server ins listening on port', process.env.API_PORT);
+    });
+}).catch(err => {
+    console.error('Erro ao efetuar conexão com o banco de dados');
+    console.error('String de conexão', stringDeConexao);
+    console.error(err);
 });
