@@ -3,7 +3,7 @@ import express, { Request, Response } from 'express';
 import { IUsuario, Usuario } from '../models/usuario';
 import jwt, { Secret } from 'jsonwebtoken';
 import * as dotenv from 'dotenv';
-import { validarToken } from '../infra/auth';
+import ValidateJWTMiddleware from '../infra/validate-jwt.middleware';
 
 const router = express.Router()
 
@@ -41,10 +41,9 @@ router.post('/api/usuarios/login', async (req: Request, res: Response) => {
     }
 });
 
-router.post('/api/usuarios/logout', async (req: Request, res: Response) => {
+router.post('/api/usuarios/logout', ValidateJWTMiddleware, async (req: Request, res: Response) => {
     try {
-        const usuario = await validarToken(req);
-        buildResponse(res, { dados: usuario });
+        buildResponse(res, { dados: {} });
     } catch (err) {
         buildResponse(res, { err });
     }

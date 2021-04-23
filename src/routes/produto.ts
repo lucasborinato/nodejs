@@ -1,15 +1,14 @@
 import express, { Request, Response } from 'express';
 
-import { validarToken } from '../infra/auth';
 import { buildResponse } from '../infra/buildResponse';
+import ValidateJWTMiddleware from '../infra/validate-jwt.middleware';
 import { IProduto, Produto } from '../models/produto';
 
 const router = express.Router()
 
-router.post('/api/produtos', async (req: Request, res: Response) => {
+router.post('/api/produtos', ValidateJWTMiddleware, async (req: Request, res: Response) => {
     try {
-        await validarToken(req);
-
+       
         if (!req.body.descricao) {
             throw 'Campo "descricao" precisa ser informado';
         }
@@ -37,10 +36,9 @@ router.post('/api/produtos', async (req: Request, res: Response) => {
     }
 });
 
-router.get('/api/produtos', async (req: Request, res: Response) => {
+router.get('/api/produtos', ValidateJWTMiddleware, async (req: Request, res: Response) => {
     try {
-        await validarToken(req);
-
+       
         const produtos = await Produto.find();
         buildResponse(res, { dados: produtos });
     } catch (err) {
@@ -48,10 +46,9 @@ router.get('/api/produtos', async (req: Request, res: Response) => {
     }
 });
 
-router.get('/api/produtos/:produtoId', async (req: Request, res: Response) => {
+router.get('/api/produtos/:produtoId', ValidateJWTMiddleware, async (req: Request, res: Response) => {
     try {
-        await validarToken(req);
-
+       
         await Produto.findOne({ '_id': req.params.produtoId })
             .then(dados => {
                 buildResponse(res, { dados });
@@ -64,10 +61,9 @@ router.get('/api/produtos/:produtoId', async (req: Request, res: Response) => {
     }
 });
 
-router.delete('/api/produtos/:produtoId', async (req: Request, res: Response) => {
+router.delete('/api/produtos/:produtoId', ValidateJWTMiddleware, async (req: Request, res: Response) => {
     try {
-        await validarToken(req);
-
+       
         await Produto.deleteOne({ '_id': req.params.produtoId })
             .then(dados => {
                 if (dados?.deletedCount?.toString() == '0') {
@@ -84,10 +80,9 @@ router.delete('/api/produtos/:produtoId', async (req: Request, res: Response) =>
     }
 });
 
-router.put('/api/produtos/:produtoId', async (req: Request, res: Response) => {
+router.put('/api/produtos/:produtoId', ValidateJWTMiddleware, async (req: Request, res: Response) => {
     try {
-        await validarToken(req);
-
+        
         if (!req.body.descricao) {
             throw 'Campo "descricao" precisa ser informado';
         }
