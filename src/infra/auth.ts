@@ -11,12 +11,12 @@ async function validarToken(req: Request) {
                 reject('Token não informado');
             }
 
-            await jwt.verify((token as string), (process.env.SECRET as Secret), async (err, decoded) => {
+            jwt.verify((token as string), (process.env.SECRET as Secret), async (err, decoded) => {
                 if (err) {
                     reject('Token inválido');
                 }
 
-                await Usuario.findOne({ 'login': (decoded as any).login })
+                Usuario.findOne({ 'login': (decoded as any).login })
                     .then(dados => {
                         if (!dados) {
                             reject('Login não encontrado');

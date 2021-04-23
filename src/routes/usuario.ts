@@ -7,7 +7,7 @@ import { validarToken } from '../infra/auth';
 
 const router = express.Router()
 
-router.post('/api/usuario/login', async (req: Request, res: Response) => {
+router.post('/api/usuarios/login', async (req: Request, res: Response) => {
     try {
         if (!req.body.login) {
             throw 'Campo "login" precisa ser informado';
@@ -41,7 +41,7 @@ router.post('/api/usuario/login', async (req: Request, res: Response) => {
     }
 });
 
-router.post('/api/usuario/logout', async (req: Request, res: Response) => {
+router.post('/api/usuarios/logout', async (req: Request, res: Response) => {
     try {
         const usuario = await validarToken(req);
         buildResponse(res, { dados: usuario });
@@ -50,7 +50,7 @@ router.post('/api/usuario/logout', async (req: Request, res: Response) => {
     }
 })
 
-router.post('/api/usuario', async (req: Request, res: Response) => {
+router.post('/api/usuarios', async (req: Request, res: Response) => {
     try {
         if (!req.body.login) {
             throw 'Campo "login" precisa ser informado';
@@ -95,7 +95,7 @@ router.post('/api/usuario', async (req: Request, res: Response) => {
     }
 });
 
-router.get('/api/usuario', async (req: Request, res: Response) => {
+router.get('/api/usuarios', async (req: Request, res: Response) => {
     try {
         const usuarios = await Usuario.find({}, { _id: 0, login: 1, email: 1 });
         buildResponse(res, { dados: usuarios });
@@ -104,7 +104,7 @@ router.get('/api/usuario', async (req: Request, res: Response) => {
     }
 });
 
-router.get('/api/usuario/:usuarioId', async (req: Request, res: Response) => {
+router.get('/api/usuarios/:usuarioId', async (req: Request, res: Response) => {
     try {
         await Usuario.findOne({ '_id': req.params.usuarioId }, { _id: 0, login: 1, email: 1 })
             .then(dados => {
@@ -118,7 +118,7 @@ router.get('/api/usuario/:usuarioId', async (req: Request, res: Response) => {
     }
 });
 
-router.delete('/api/usuario/:usuarioId', async (req: Request, res: Response) => {
+router.delete('/api/usuarios/:usuarioId', async (req: Request, res: Response) => {
     try {
         await Usuario.deleteOne({ '_id': req.params.usuarioId })
             .then(dados => {
@@ -136,7 +136,7 @@ router.delete('/api/usuario/:usuarioId', async (req: Request, res: Response) => 
     }
 });
 
-router.put('/api/usuario/:usuarioId', async (req: Request, res: Response) => {
+router.put('/api/usuarios/:usuarioId', async (req: Request, res: Response) => {
     try {
 
         if (!req.body.login) {

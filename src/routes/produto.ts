@@ -5,7 +5,7 @@ import { validarToken } from '../infra/auth';
 
 const router = express.Router()
 
-router.post('/api/produto', async(req: Request, res: Response) => {
+router.post('/api/produtos', async(req: Request, res: Response) => {
     try {
         await validarToken(req);
 
@@ -36,7 +36,7 @@ router.post('/api/produto', async(req: Request, res: Response) => {
     }
 });
 
-router.get('/api/produto', async(req: Request, res: Response) => {
+router.get('/api/produtos', async(req: Request, res: Response) => {
     try {
         await validarToken(req);
 
@@ -47,7 +47,7 @@ router.get('/api/produto', async(req: Request, res: Response) => {
     }
 });
 
-router.get('/api/produto/:produtoId', async(req: Request, res: Response) => {
+router.get('/api/produtos/:produtoId', async(req: Request, res: Response) => {
     try {
         await validarToken(req);
 
@@ -63,7 +63,7 @@ router.get('/api/produto/:produtoId', async(req: Request, res: Response) => {
     }
 });
 
-router.delete('/api/produto/:produtoId', async(req: Request, res: Response) => {
+router.delete('/api/produtos/:produtoId', async(req: Request, res: Response) => {
     try {
         await validarToken(req);
 
@@ -83,7 +83,7 @@ router.delete('/api/produto/:produtoId', async(req: Request, res: Response) => {
     }
 });
 
-router.put('/api/produto/:produtoId', async(req: Request, res: Response) => {
+router.put('/api/produtos/:produtoId', async(req: Request, res: Response) => {
     try {
         await validarToken(req);
 

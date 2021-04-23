@@ -12,15 +12,21 @@
 					"name": "Consultar Produtos",
 					"request": {
 						"method": "GET",
-						"header": [],
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "eyJhbGciOiJIUNiIsInR5cCI6IkpXVCJ9.eyJsb2dpbiI6ImxvZ2luIiwibm9tZSI6Im5vbWUiLCJlbWFpbCI6ImVtYWlsIiwiaWF0IjoxNjE4OTYwMjIwLCJleHAiOjE2MTg5NjA1MjB9.Ph_6mBb3onjlvlgQQhP7t_yFvmtFmSMfZaYJboNoi3Q",
+								"type": "text"
+							}
+						],
 						"url": {
-							"raw": "{{host}}/api/produto",
+							"raw": "{{host}}/api/produtos",
 							"host": [
 								"{{host}}"
 							],
 							"path": [
 								"api",
-								"produto"
+								"produtos"
 							]
 						}
 					},
@@ -30,16 +36,22 @@
 					"name": "Consultar Produto por Id",
 					"request": {
 						"method": "GET",
-						"header": [],
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJsb2dpbiI6ImxvZ2luIiwibm9tZSI6Im5vbWUiLCJlbWFpbCI6ImVtYWlsIiwiaWF0IjoxNjE4OTYwMjIwLCJleHAiOjE2MTg5NjA1MjB9.Ph_6mBb3onjlvlgQQhP7t_yFvmtFmSMfZaYJboNoi3Q",
+								"type": "text"
+							}
+						],
 						"url": {
-							"raw": "{{host}}/api/produto/607b829c032d9c53aea49a60",
+							"raw": "{{host}}/api/produtos/607bacdc205f606c01bc3713",
 							"host": [
 								"{{host}}"
 							],
 							"path": [
 								"api",
-								"produto",
-								"607b829c032d9c53aea49a60"
+								"produtos",
+								"607bacdc205f606c01bc3713"
 							]
 						}
 					},
@@ -49,7 +61,13 @@
 					"name": "Incluir Produto",
 					"request": {
 						"method": "POST",
-						"header": [],
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJsb2dpbiI6ImxvZ2luIiwibm9tZSI6Im5vbWUiLCJlbWFpbCI6ImVtYWlsIiwiaWF0IjoxNjE4OTYwMjIwLCJleHAiOjE2MTg5NjA1MjB9.Ph_6mBb3onjlvlgQQhP7t_yFvmtFmSMfZaYJboNoi3Q",
+								"type": "text"
+							}
+						],
 						"body": {
 							"mode": "raw",
 							"raw": "{\n    \"descricao\": \"descricao postman\",\n    \"peso\": \"peso postman\",\n    \"valor\": \"valor postman\"\n}",
@@ -60,13 +78,13 @@
 							}
 						},
 						"url": {
-							"raw": "{{host}}/api/produto",
+							"raw": "{{host}}/api/produtos",
 							"host": [
 								"{{host}}"
 							],
 							"path": [
 								"api",
-								"produto"
+								"produtos"
 							]
 						}
 					},
@@ -76,7 +94,13 @@
 					"name": "Alterar Produto por Id",
 					"request": {
 						"method": "PUT",
-						"header": [],
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJsb2dpbiI6ImxvZ2luIiwibm9tZSI6Im5vbWUiLCJlbWFpbCI6ImVtYWlsIiwiaWF0IjoxNjE4OTYwMjIwLCJleHAiOjE2MTg5NjA1MjB9.Ph_6mBb3onjlvlgQQhP7t_yFvmtFmSMfZaYJboNoi3Q",
+								"type": "text"
+							}
+						],
 						"body": {
 							"mode": "raw",
 							"raw": "{\n    \"descricao\": \"alterou descricao\",\n    \"peso\": \"alterou peso\",\n    \"valor\": \"alterou valor\"\n}",
@@ -87,13 +111,13 @@
 							}
 						},
 						"url": {
-							"raw": "{{host}}/api/produto/607b885e6181135405aebcb6",
+							"raw": "{{host}}/api/produtos/607b885e6181135405aebcb6",
 							"host": [
 								"{{host}}"
 							],
 							"path": [
 								"api",
-								"produto",
+								"produtos",
 								"607b885e6181135405aebcb6"
 							]
 						}
@@ -104,16 +128,22 @@
 					"name": "Deletar Produto por Id",
 					"request": {
 						"method": "DELETE",
-						"header": [],
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJsb2dpbiI6ImxvZ2luIiwibm9tZSI6Im5vbWUiLCJlbWFpbCI6ImVtYWlsIiwiaWF0IjoxNjE4OTYwMjIwLCJleHAiOjE2MTg5NjA1MjB9.Ph_6mBb3onjlvlgQQhP7t_yFvmtFmSMfZaYJboNoi3Q",
+								"type": "text"
+							}
+						],
 						"url": {
-							"raw": "{{host}}/api/produto/607b864781a7f553e751b8cc",
+							"raw": "{{host}}/api/produtos/607bacdc205f606c01bc3713",
 							"host": [
 								"{{host}}"
 							],
 							"path": [
 								"api",
-								"produto",
-								"607b864781a7f553e751b8cc"
+								"produtos",
+								"607bacdc205f606c01bc3713"
 							]
 						}
 					},
@@ -130,13 +160,13 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "{{host}}/api/usuario",
+							"raw": "{{host}}/api/usuarios",
 							"host": [
 								"{{host}}"
 							],
 							"path": [
 								"api",
-								"usuario"
+								"usuarios"
 							]
 						}
 					},
@@ -148,13 +178,13 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "{{host}}/api/usuario/607c84cddae450783264b929",
+							"raw": "{{host}}/api/usuarios/607c84cddae450783264b929",
 							"host": [
 								"{{host}}"
 							],
 							"path": [
 								"api",
-								"usuario",
+								"usuarios",
 								"607c84cddae450783264b929"
 							]
 						}
@@ -176,13 +206,13 @@
 							}
 						},
 						"url": {
-							"raw": "{{host}}/api/usuario",
+							"raw": "{{host}}/api/usuarios",
 							"host": [
 								"{{host}}"
 							],
 							"path": [
 								"api",
-								"usuario"
+								"usuarios"
 							]
 						}
 					},
@@ -203,13 +233,13 @@
 							}
 						},
 						"url": {
-							"raw": "{{host}}/api/usuario/607c84cddae450783264b929",
+							"raw": "{{host}}/api/usuarios/607c84cddae450783264b929",
 							"host": [
 								"{{host}}"
 							],
 							"path": [
 								"api",
-								"usuario",
+								"usuarios",
 								"607c84cddae450783264b929"
 							]
 						}
@@ -222,14 +252,14 @@
 						"method": "DELETE",
 						"header": [],
 						"url": {
-							"raw": "{{host}}/api/usuario/607c84cddae450783264b929",
+							"raw": "{{host}}/api/usuarios/607f4dd82d7df29198962eb7",
 							"host": [
 								"{{host}}"
 							],
 							"path": [
 								"api",
-								"usuario",
-								"607c84cddae450783264b929"
+								"usuarios",
+								"607f4dd82d7df29198962eb7"
 							]
 						}
 					},
@@ -255,13 +285,13 @@
 							}
 						},
 						"url": {
-							"raw": "{{host}}/api/usuario/login",
+							"raw": "{{host}}/api/usuarios/login",
 							"host": [
 								"{{host}}"
 							],
 							"path": [
 								"api",
-								"usuario",
+								"usuarios",
 								"login"
 							]
 						}
@@ -275,7 +305,7 @@
 						"header": [
 							{
 								"key": "Authorization",
-								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJub21lIjoibm9tZSIsImVtYWlsIjoiZW1haWwiLCJpYXQiOjE2MTg5NTYyMjksImV4cCI6MTYxODk1NjUyOX0.OXrZ-r0yI0JvuqrXw-k727YY4GPNU14t5wgwZlzZF4o",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJsb2dpbiI6ImxvZ2luIiwibm9tZSI6Im5vbWUiLCJlbWFpbCI6ImVtYWlsIiwiaWF0IjoxNjE4OTU5OTY4LCJleHAiOjE2MTg5NjAyNjh9.MpaKYJLxIVkJupYlmHbVBZ_RMUwjgpwycLvToDOVvGo",
 								"type": "text"
 							}
 						],
@@ -289,13 +319,13 @@
 							}
 						},
 						"url": {
-							"raw": "{{host}}/api/usuario/logout",
+							"raw": "{{host}}/api/usuarios/logout",
 							"host": [
 								"{{host}}"
 							],
 							"path": [
 								"api",
-								"usuario",
+								"usuarios",
 								"logout"
 							]
 						}
