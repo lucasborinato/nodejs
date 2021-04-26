@@ -7,9 +7,12 @@ import { fatorConversaoRouter } from './routes/fator-conversao';
 import { produtoRouter } from './routes/produto';
 import { usuarioRouter } from './routes/usuario';
 
+export let ObjectId = mongoose.Types.ObjectId;
+
 const app = express();
 app.use(json());
 dotenv.config();
+
 
 app.use(function (req, res, next) {
 

@@ -28,7 +28,7 @@ router.post('/api/usuarios/login', async (req: Request, res: Response) => {
                     nome: dados?.nome,
                     email: dados?.email
                 }, (process.env.SECRET as Secret), {
-                    expiresIn: 300 // expires in 5min
+                    expiresIn: 86400 // Tempo de expiracao token
                 });
 
                 buildResponse(res, { dados: { token } });
