@@ -15,7 +15,7 @@
 						"header": [
 							{
 								"key": "Authorization",
-								"value": "eyJhbGciOiJIUNiIsInR5cCI6IkpXVCJ9.eyJsb2dpbiI6ImxvZ2luIiwibm9tZSI6Im5vbWUiLCJlbWFpbCI6ImVtYWlsIiwiaWF0IjoxNjE4OTYwMjIwLCJleHAiOjE2MTg5NjA1MjB9.Ph_6mBb3onjlvlgQQhP7t_yFvmtFmSMfZaYJboNoi3Q",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJsb2dpbiI6ImxvZ2luIiwibm9tZSI6Im5vbWUiLCJlbWFpbCI6ImVtYWlsIiwiaWF0IjoxNjE5MzgwMzA0LCJleHAiOjE2MTkzODA2MDR9.ZZsX3Gau0CBbZS482Vf5gEd3WpIbFpfZzcf5vt7m4p8",
 								"type": "text"
 							}
 						],
@@ -144,6 +144,152 @@
 								"api",
 								"produtos",
 								"607bacdc205f606c01bc3713"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Fator Conversão",
+			"item": [
+				{
+					"name": "Consultar Fatores Conversão",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJsb2dpbiI6ImxvZ2luIiwibm9tZSI6Im5vbWUiLCJlbWFpbCI6ImVtYWlsIiwiaWF0IjoxNjE5NDczMzAwLCJleHAiOjE2MTk0NzM2MDB9.eIOWCxEhGtylfykeZGLB7N4O4JjjzBqDQ0SG12fzRzU",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{host}}/api/fatoresConversao",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"api",
+								"fatoresConversao"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Consultar Fator Conversão por Id",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJsb2dpbiI6ImxvZ2luIiwibm9tZSI6Im5vbWUiLCJlbWFpbCI6ImVtYWlsIiwiaWF0IjoxNjE5NDczMzAwLCJleHAiOjE2MTk0NzM2MDB9.eIOWCxEhGtylfykeZGLB7N4O4JjjzBqDQ0SG12fzRzU",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{host}}/api/fatoresConversao/6087333c800b510c054ec8ba",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"api",
+								"fatoresConversao",
+								"6087333c800b510c054ec8ba"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Incluir Fatores Conversão",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJsb2dpbiI6ImxvZ2luIiwibm9tZSI6Im5vbWUiLCJlbWFpbCI6ImVtYWlsIiwiaWF0IjoxNjE5NDczMTc0LCJleHAiOjE2MTk0NzM0NzR9.VAlJrzHXIJv8c37oU31KAYMnzFUMTHY8XiFZoBZm20s",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"descricao\": \"descricao postman\",\n    \"multiplicador\": 4\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{host}}/api/fatoresConversao",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"api",
+								"fatoresConversao"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Alterar Fatores Conversão por Id",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJsb2dpbiI6ImxvZ2luIiwibm9tZSI6Im5vbWUiLCJlbWFpbCI6ImVtYWlsIiwiaWF0IjoxNjE5NDczMzAwLCJleHAiOjE2MTk0NzM2MDB9.eIOWCxEhGtylfykeZGLB7N4O4JjjzBqDQ0SG12fzRzU",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"descricao\": \"alterou descricao\",\n    \"multiplicador\": 5\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{host}}/api/fatoresConversao/6087333c800b510c054ec8ba",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"api",
+								"fatoresConversao",
+								"6087333c800b510c054ec8ba"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Deletar Fatores Conversão por Id",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJsb2dpbiI6ImxvZ2luIiwibm9tZSI6Im5vbWUiLCJlbWFpbCI6ImVtYWlsIiwiaWF0IjoxNjE5NDczMzAwLCJleHAiOjE2MTk0NzM2MDB9.eIOWCxEhGtylfykeZGLB7N4O4JjjzBqDQ0SG12fzRzU",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{host}}/api/fatoresConversao/6087333c800b510c054ec8ba",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"api",
+								"fatoresConversao",
+								"6087333c800b510c054ec8ba"
 							]
 						}
 					},
@@ -305,7 +451,7 @@
 						"header": [
 							{
 								"key": "Authorization",
-								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJsb2dpbiI6ImxvZ2luIiwibm9tZSI6Im5vbWUiLCJlbWFpbCI6ImVtYWlsIiwiaWF0IjoxNjE4OTU5OTY4LCJleHAiOjE2MTg5NjAyNjh9.MpaKYJLxIVkJupYlmHbVBZ_RMUwjgpwycLvToDOVvGo",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJsb2dpbiI6ImxvZ2luIiwibm9tZSI6Im5vbWUiLCJlbWFpbCI6ImVtYWlsIiwiaWF0IjoxNjE5MjA4NDkzLCJleHAiOjE2MTkyMDg3OTN9.2D5YSKKgZwYkpo-6yWVCTDJeYkZRov7RtxDZwG7KbNA",
 								"type": "text"
 							}
 						],

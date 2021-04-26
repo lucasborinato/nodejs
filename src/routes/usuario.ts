@@ -1,8 +1,8 @@
 import express, { Request, Response } from 'express';
 import jwt, { Secret } from 'jsonwebtoken';
 
-import { validarToken } from '../infra/auth';
 import { buildResponse } from '../infra/buildResponse';
+import ValidateJWTMiddleware from '../infra/validate-jwt.middleware';
 import { IUsuario, Usuario } from '../models/usuario';
 
 const router = express.Router()
@@ -41,10 +41,9 @@ router.post('/api/usuarios/login', async (req: Request, res: Response) => {
     }
 });
 
-router.post('/api/usuarios/logout', async (req: Request, res: Response) => {
+router.post('/api/usuarios/logout', ValidateJWTMiddleware, async (req: Request, res: Response) => {
     try {
-        const usuario = await validarToken(req);
-        buildResponse(res, { dados: usuario });
+        buildResponse(res, { dados: {} });
     } catch (err) {
         buildResponse(res, { err });
     }
@@ -122,8 +121,8 @@ router.delete('/api/usuarios/:usuarioId', async (req: Request, res: Response) =>
                     buildResponse(res, { msg: 'Usuário excluído com sucesso' });
                 }
             })
-            .catch(_ => {
-                buildResponse(res, { msg: 'Usuário não encontrado' });
+            .catch(error => {
+                throw error;
             });
     } catch (err) {
         buildResponse(res, { err });
