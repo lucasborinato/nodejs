@@ -3,6 +3,7 @@ import * as dotenv from 'dotenv';
 import express from 'express';
 import mongoose from 'mongoose';
 
+import { fatorConversaoRouter } from './routes/fator-conversao';
 import { produtoRouter } from './routes/produto';
 import { usuarioRouter } from './routes/usuario';
 
@@ -29,6 +30,7 @@ app.use(function (req, res, next) {
     next();
 });
 
+app.use(fatorConversaoRouter);
 app.use(produtoRouter);
 app.use(usuarioRouter);
 
