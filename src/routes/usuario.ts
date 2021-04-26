@@ -1,9 +1,9 @@
-import { buildResponse } from '../infra/buildResponse';
 import express, { Request, Response } from 'express';
-import { IUsuario, Usuario } from '../models/usuario';
 import jwt, { Secret } from 'jsonwebtoken';
-import * as dotenv from 'dotenv';
+
+import { buildResponse } from '../infra/buildResponse';
 import ValidateJWTMiddleware from '../infra/validate-jwt.middleware';
+import { IUsuario, Usuario } from '../models/usuario';
 
 const router = express.Router()
 
@@ -18,24 +18,24 @@ router.post('/api/usuarios/login', async (req: Request, res: Response) => {
         }
 
         const body = req.body;
+        const dados = await Usuario.findOne({
+            login: body.login,
+            senha: body.senha
+        });
 
-        await Usuario.findOne({ 'login': body.login, 'senha': body.senha })
-            .then(dados => {
-                dotenv.config();
+        if (!dados) {
+            throw 'Usuário e/ou senha inválido(s)';
+        }
 
-                const token = jwt.sign({
-                    login: dados?.login,
-                    nome: dados?.nome,
-                    email: dados?.email
-                }, (process.env.SECRET as Secret), {
-                    expiresIn: 86400 // Tempo de expiracao token
-                });
+        const token = jwt.sign({
+            login: dados?.login,
+            nome: dados?.nome,
+            email: dados?.email
+        }, (process.env.SECRET as Secret), {
+            expiresIn: 86400 // Tempo de expiracao token
+        });
 
-                buildResponse(res, { dados: { token } });
-            })
-            .catch(err => {
-                throw err;
-            });
+        buildResponse(res, { dados: { token } });
     } catch (err) {
         buildResponse(res, { err });
     }
@@ -68,27 +68,21 @@ router.post('/api/usuarios', async (req: Request, res: Response) => {
         }
 
         const body: IUsuario = req.body;
+        const dados = await Usuario.findOne({ 'login': body.login });
 
-        await Usuario.findOne({ 'login': body.login })
-            .then(async dados => {
-                if (dados) {
-                    throw 'Login já está sendo utilizado. Por favor informar outro Login';
-                }
+        if (dados) {
+            throw 'Login já está sendo utilizado. Por favor informar outro Login';
+        }
 
-                const usuario: IUsuario = new Usuario({
-                    login: body.login,
-                    senha: body.senha,
-                    nome: body.nome,
-                    email: body.email
-                });
+        const usuario: IUsuario = new Usuario({
+            login: body.login,
+            senha: body.senha,
+            nome: body.nome,
+            email: body.email
+        });
 
-                await usuario.save();
-                buildResponse(res, { msg: 'Usuário incluído com sucesso' });
-            })
-            .catch(err => {
-                throw err;
-            });
-
+        await usuario.save();
+        buildResponse(res, { msg: 'Usuário incluído com sucesso' });
     } catch (err) {
         buildResponse(res, { err });
     }
