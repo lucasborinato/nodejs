@@ -127,8 +127,8 @@ router.delete('/api/usuarios/:usuarioId', async (req: Request, res: Response) =>
                     buildResponse(res, { msg: 'Usuário excluído com sucesso' });
                 }
             })
-            .catch(_ => {
-                buildResponse(res, { msg: 'Usuário não encontrado' });
+            .catch(error => {
+                throw error;
             });
     } catch (err) {
         buildResponse(res, { err });

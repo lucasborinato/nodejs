@@ -72,8 +72,8 @@ router.delete('/api/produtos/:produtoId', ValidateJWTMiddleware, async (req: Req
                     buildResponse(res, { msg: 'Produto excluído com sucesso' });
                 }
             })
-            .catch(_ => {
-                buildResponse(res, { msg: 'Produto não encontrado' });
+            .catch(error => {
+                throw error;
             });
     } catch (err) {
         buildResponse(res, { err });
