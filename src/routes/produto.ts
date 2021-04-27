@@ -1,7 +1,9 @@
 import express, { Request, Response } from 'express';
+import { ObjectId } from '..';
 
 import { buildResponse } from '../infra/buildResponse';
 import ValidateJWTMiddleware from '../infra/validate-jwt.middleware';
+import { FatorConversao, IFatorConversao } from '../models/fator-conversao';
 import { IProduto, Produto } from '../models/produto';
 
 const router = express.Router()
@@ -21,24 +23,41 @@ router.post('/api/produtos', ValidateJWTMiddleware, async (req: Request, res: Re
             throw 'Campo "valor" precisa ser informado';
         }
 
-        const body = req.body;
+        if (!req.body.fatoresConversao) {
+            throw 'Campo "fatoresConversao" precisa ser informado';
+        }
 
-        const produto: IProduto = new Produto({
-            descricao: body.descricao,
-            peso: body.peso,
-            valor: body.valor
+        let body = req.body;
+        
+        FatorConversao.find({
+            '_id': { $in: body.fatoresConversao }
+        }, async (error, success: IFatorConversao[]) => {
+
+            if(error) {
+                throw error;
+            }
+            
+            body.fatoresConversao = success;
+
+            const produto: IProduto = new Produto({
+                descricao: body.descricao,
+                peso: body.peso,
+                valor: body.valor,
+                fatoresConversao: body.fatoresConversao
+            });
+    
+            await produto.save();
+            buildResponse(res, { msg: 'Produto incluído com sucesso' });
         });
-
-        await produto.save();
-        buildResponse(res, { msg: 'Produto incluído com sucesso' });
+        
+       
     } catch (err) {
         buildResponse(res, { err });
     }
 });
 
 router.get('/api/produtos', ValidateJWTMiddleware, async (req: Request, res: Response) => {
-    try {
-       
+    try {       
         const produtos = await Produto.find();
         buildResponse(res, { dados: produtos });
     } catch (err) {
@@ -47,9 +66,8 @@ router.get('/api/produtos', ValidateJWTMiddleware, async (req: Request, res: Res
 });
 
 router.get('/api/produtos/:produtoId', ValidateJWTMiddleware, async (req: Request, res: Response) => {
-    try {
-       
-        await Produto.findOne({ '_id': req.params.produtoId })
+    try {       
+        Produto.findOne({ '_id': req.params.produtoId })
             .then(dados => {
                 buildResponse(res, { dados });
             })
@@ -62,9 +80,8 @@ router.get('/api/produtos/:produtoId', ValidateJWTMiddleware, async (req: Reques
 });
 
 router.delete('/api/produtos/:produtoId', ValidateJWTMiddleware, async (req: Request, res: Response) => {
-    try {
-       
-        await Produto.deleteOne({ '_id': req.params.produtoId })
+    try {       
+        Produto.deleteOne({ '_id': req.params.produtoId })
             .then(dados => {
                 if (dados?.deletedCount?.toString() == '0') {
                     buildResponse(res, { msg: 'Produto não encontrado' });
@@ -95,13 +112,30 @@ router.put('/api/produtos/:produtoId', ValidateJWTMiddleware, async (req: Reques
             throw 'Campo "valor" precisa ser informado';
         }
 
-        await Produto.updateOne({ '_id': req.params.produtoId }, req.body)
+        if (!req.body.fatoresConversao) {
+            throw 'Campo "fatoresConversao" precisa ser informado';
+        }
+
+        let body = req.body;
+
+        FatorConversao.find({
+            '_id': { $in: body.fatoresConversao }
+        }, async (error, success: IFatorConversao[]) => {
+
+            if(error) {
+                throw error;
+            }
+            
+            body.fatoresConversao = success;
+
+            Produto.updateOne({ '_id': req.params.produtoId }, body)
             .then(_ => {
                 buildResponse(res, { msg: 'Produto atualizado com sucesso' });
             })
             .catch(_ => {
                 buildResponse(res, null);
             });
+        });        
     } catch (err) {
         buildResponse(res, { err });
     }

@@ -11,7 +11,8 @@ const collection: string = 'produto';
 const todoSchema = new mongoose.Schema({
     descricao: { type: String, required: true },
     peso: { type: String, required: true },
-    valor: { type: String, required: true }    
+    valor: { type: String, required: true },
+    fatoresConversao: { type: Array, required: true }   
 });
 
 const Produto: Model<IProduto> = mongoose.model(collection, todoSchema, collection);

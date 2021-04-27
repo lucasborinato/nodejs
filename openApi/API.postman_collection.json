@@ -15,7 +15,7 @@
 						"header": [
 							{
 								"key": "Authorization",
-								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJsb2dpbiI6ImxvZ2luIiwibm9tZSI6Im5vbWUiLCJlbWFpbCI6ImVtYWlsIiwiaWF0IjoxNjE5MzgwMzA0LCJleHAiOjE2MTkzODA2MDR9.ZZsX3Gau0CBbZS482Vf5gEd3WpIbFpfZzcf5vt7m4p8",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJsb2dpbiI6ImxvZ2luIiwibm9tZSI6Im5vbWUiLCJlbWFpbCI6ImVtYWlsIiwiaWF0IjoxNjE5NDc1MzY0LCJleHAiOjE2MTk1NjE3NjR9.b50aMjWsXgQmqohPW2X0zUyvVRYBMXMOcsrjQnZuCRo",
 								"type": "text"
 							}
 						],
@@ -39,19 +39,19 @@
 						"header": [
 							{
 								"key": "Authorization",
-								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJsb2dpbiI6ImxvZ2luIiwibm9tZSI6Im5vbWUiLCJlbWFpbCI6ImVtYWlsIiwiaWF0IjoxNjE4OTYwMjIwLCJleHAiOjE2MTg5NjA1MjB9.Ph_6mBb3onjlvlgQQhP7t_yFvmtFmSMfZaYJboNoi3Q",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJsb2dpbiI6ImxvZ2luIiwibm9tZSI6Im5vbWUiLCJlbWFpbCI6ImVtYWlsIiwiaWF0IjoxNjE5NDc1MzY0LCJleHAiOjE2MTk1NjE3NjR9.b50aMjWsXgQmqohPW2X0zUyvVRYBMXMOcsrjQnZuCRo",
 								"type": "text"
 							}
 						],
 						"url": {
-							"raw": "{{host}}/api/produtos/607bacdc205f606c01bc3713",
+							"raw": "{{host}}/api/produtos/60873ef9e367c010a52650b6",
 							"host": [
 								"{{host}}"
 							],
 							"path": [
 								"api",
 								"produtos",
-								"607bacdc205f606c01bc3713"
+								"60873ef9e367c010a52650b6"
 							]
 						}
 					},
@@ -64,13 +64,13 @@
 						"header": [
 							{
 								"key": "Authorization",
-								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJsb2dpbiI6ImxvZ2luIiwibm9tZSI6Im5vbWUiLCJlbWFpbCI6ImVtYWlsIiwiaWF0IjoxNjE4OTYwMjIwLCJleHAiOjE2MTg5NjA1MjB9.Ph_6mBb3onjlvlgQQhP7t_yFvmtFmSMfZaYJboNoi3Q",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJsb2dpbiI6ImxvZ2luIiwibm9tZSI6Im5vbWUiLCJlbWFpbCI6ImVtYWlsIiwiaWF0IjoxNjE5NDc1MzY0LCJleHAiOjE2MTk1NjE3NjR9.b50aMjWsXgQmqohPW2X0zUyvVRYBMXMOcsrjQnZuCRo",
 								"type": "text"
 							}
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n    \"descricao\": \"descricao postman\",\n    \"peso\": \"peso postman\",\n    \"valor\": \"valor postman\"\n}",
+							"raw": "{\n    \"descricao\": \"descricao postman\",\n    \"peso\": \"peso postman\",\n    \"valor\": \"valor postman\",\n    \"fatoresConversao\": [\n        \"60873370800b510c054ec8bb\",\n        \"608737d6e4d5b10e0bb8fc0b\",\n        \"608737dde4d5b10e0bb8fc0c\"\n    ]\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -97,13 +97,13 @@
 						"header": [
 							{
 								"key": "Authorization",
-								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJsb2dpbiI6ImxvZ2luIiwibm9tZSI6Im5vbWUiLCJlbWFpbCI6ImVtYWlsIiwiaWF0IjoxNjE4OTYwMjIwLCJleHAiOjE2MTg5NjA1MjB9.Ph_6mBb3onjlvlgQQhP7t_yFvmtFmSMfZaYJboNoi3Q",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJsb2dpbiI6ImxvZ2luIiwibm9tZSI6Im5vbWUiLCJlbWFpbCI6ImVtYWlsIiwiaWF0IjoxNjE5NDc1MzY0LCJleHAiOjE2MTk1NjE3NjR9.b50aMjWsXgQmqohPW2X0zUyvVRYBMXMOcsrjQnZuCRo",
 								"type": "text"
 							}
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n    \"descricao\": \"alterou descricao\",\n    \"peso\": \"alterou peso\",\n    \"valor\": \"alterou valor\"\n}",
+							"raw": "{\n    \"descricao\": \"alterou descricao\",\n    \"peso\": \"alterou peso\",\n    \"valor\": \"alterou valor\",\n    \"fatoresConversao\": [\n        \"60873370800b510c054ec8bb\"\n    ]\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -111,14 +111,14 @@
 							}
 						},
 						"url": {
-							"raw": "{{host}}/api/produtos/607b885e6181135405aebcb6",
+							"raw": "{{host}}/api/produtos/60873f09e367c010a52650b7",
 							"host": [
 								"{{host}}"
 							],
 							"path": [
 								"api",
 								"produtos",
-								"607b885e6181135405aebcb6"
+								"60873f09e367c010a52650b7"
 							]
 						}
 					},
@@ -131,19 +131,19 @@
 						"header": [
 							{
 								"key": "Authorization",
-								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJsb2dpbiI6ImxvZ2luIiwibm9tZSI6Im5vbWUiLCJlbWFpbCI6ImVtYWlsIiwiaWF0IjoxNjE4OTYwMjIwLCJleHAiOjE2MTg5NjA1MjB9.Ph_6mBb3onjlvlgQQhP7t_yFvmtFmSMfZaYJboNoi3Q",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJsb2dpbiI6ImxvZ2luIiwibm9tZSI6Im5vbWUiLCJlbWFpbCI6ImVtYWlsIiwiaWF0IjoxNjE5NDc1MzY0LCJleHAiOjE2MTk1NjE3NjR9.b50aMjWsXgQmqohPW2X0zUyvVRYBMXMOcsrjQnZuCRo",
 								"type": "text"
 							}
 						],
 						"url": {
-							"raw": "{{host}}/api/produtos/607bacdc205f606c01bc3713",
+							"raw": "{{host}}/api/produtos/60873f09e367c010a52650b7",
 							"host": [
 								"{{host}}"
 							],
 							"path": [
 								"api",
 								"produtos",
-								"607bacdc205f606c01bc3713"
+								"60873f09e367c010a52650b7"
 							]
 						}
 					},
@@ -161,7 +161,7 @@
 						"header": [
 							{
 								"key": "Authorization",
-								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJsb2dpbiI6ImxvZ2luIiwibm9tZSI6Im5vbWUiLCJlbWFpbCI6ImVtYWlsIiwiaWF0IjoxNjE5NDczMzAwLCJleHAiOjE2MTk0NzM2MDB9.eIOWCxEhGtylfykeZGLB7N4O4JjjzBqDQ0SG12fzRzU",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJsb2dpbiI6ImxvZ2luIiwibm9tZSI6Im5vbWUiLCJlbWFpbCI6ImVtYWlsIiwiaWF0IjoxNjE5NDc0MjEyLCJleHAiOjE2MTk0NzQ1MTJ9.1BZG56KgiDkC0HYrBJrJZvpUs77AAIQXsTrtts-SXpw",
 								"type": "text"
 							}
 						],
@@ -210,13 +210,13 @@
 						"header": [
 							{
 								"key": "Authorization",
-								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJsb2dpbiI6ImxvZ2luIiwibm9tZSI6Im5vbWUiLCJlbWFpbCI6ImVtYWlsIiwiaWF0IjoxNjE5NDczMTc0LCJleHAiOjE2MTk0NzM0NzR9.VAlJrzHXIJv8c37oU31KAYMnzFUMTHY8XiFZoBZm20s",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJsb2dpbiI6ImxvZ2luIiwibm9tZSI6Im5vbWUiLCJlbWFpbCI6ImVtYWlsIiwiaWF0IjoxNjE5NDc0MjEyLCJleHAiOjE2MTk0NzQ1MTJ9.1BZG56KgiDkC0HYrBJrJZvpUs77AAIQXsTrtts-SXpw",
 								"type": "text"
 							}
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n    \"descricao\": \"descricao postman\",\n    \"multiplicador\": 4\n}",
+							"raw": "{\n    \"descricao\": \"descricao 3\",\n    \"multiplicador\": 7\n}",
 							"options": {
 								"raw": {
 									"language": "json"

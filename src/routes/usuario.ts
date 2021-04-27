@@ -32,7 +32,7 @@ router.post('/api/usuarios/login', async (req: Request, res: Response) => {
             nome: dados?.nome,
             email: dados?.email
         }, (process.env.SECRET as Secret), {
-            expiresIn: 300 // expires in 5min
+            expiresIn: 86400 // Tempo de expiracao token
         });
 
         buildResponse(res, { dados: { token } });
@@ -93,7 +93,7 @@ router.get('/api/usuarios', async (req: Request, res: Response) => {
         const usuarios = await Usuario.find({}, { _id: 0, login: 1, email: 1 });
         buildResponse(res, { dados: usuarios });
     } catch (error) {
-        return res.send(`Erro ao consultar Usuario: ${ error }`);
+        return res.send(`Erro ao consultar Usuario: ${error}`);
     }
 });
 
