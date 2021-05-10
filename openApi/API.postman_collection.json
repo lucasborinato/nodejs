@@ -6,6 +6,94 @@
 	},
 	"item": [
 		{
+			"name": "Login",
+			"item": [
+				{
+					"name": "Efetuar Login",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript"
+							}
+						},
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"let responseData = pm.response.json();",
+									"pm.environment.set(\"token\", responseData.dados.token);"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"login\": \"login\",\n    \"senha\": \"senha\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{host}}/api/usuarios/login",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"api",
+								"usuarios",
+								"login"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Efetuar Logout",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJsb2dpbiI6ImxvZ2luIiwibm9tZSI6Im5vbWUiLCJlbWFpbCI6ImVtYWlsIiwiaWF0IjoxNjE5MjA4NDkzLCJleHAiOjE2MTkyMDg3OTN9.2D5YSKKgZwYkpo-6yWVCTDJeYkZRov7RtxDZwG7KbNA",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{host}}/api/usuarios/logout",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"api",
+								"usuarios",
+								"logout"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
 			"name": "Produto",
 			"item": [
 				{
@@ -15,7 +103,7 @@
 						"header": [
 							{
 								"key": "Authorization",
-								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJsb2dpbiI6ImxvZ2luIiwibm9tZSI6Im5vbWUiLCJlbWFpbCI6ImVtYWlsIiwiaWF0IjoxNjE5NDc1MzY0LCJleHAiOjE2MTk1NjE3NjR9.b50aMjWsXgQmqohPW2X0zUyvVRYBMXMOcsrjQnZuCRo",
+								"value": "{{token}}",
 								"type": "text"
 							}
 						],
@@ -39,7 +127,7 @@
 						"header": [
 							{
 								"key": "Authorization",
-								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJsb2dpbiI6ImxvZ2luIiwibm9tZSI6Im5vbWUiLCJlbWFpbCI6ImVtYWlsIiwiaWF0IjoxNjE5NDc1MzY0LCJleHAiOjE2MTk1NjE3NjR9.b50aMjWsXgQmqohPW2X0zUyvVRYBMXMOcsrjQnZuCRo",
+								"value": "{{token}}",
 								"type": "text"
 							}
 						],
@@ -64,13 +152,13 @@
 						"header": [
 							{
 								"key": "Authorization",
-								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJsb2dpbiI6ImxvZ2luIiwibm9tZSI6Im5vbWUiLCJlbWFpbCI6ImVtYWlsIiwiaWF0IjoxNjE5NDc1MzY0LCJleHAiOjE2MTk1NjE3NjR9.b50aMjWsXgQmqohPW2X0zUyvVRYBMXMOcsrjQnZuCRo",
+								"value": "{{token}}",
 								"type": "text"
 							}
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n    \"descricao\": \"descricao postman\",\n    \"peso\": \"peso postman\",\n    \"valor\": \"valor postman\",\n    \"fatoresConversao\": [\n        \"60873370800b510c054ec8bb\",\n        \"608737d6e4d5b10e0bb8fc0b\",\n        \"608737dde4d5b10e0bb8fc0c\"\n    ]\n}",
+							"raw": "{\n    \"descricao\": \"descricao 2\",\n    \"peso\": \"peso 2\",\n    \"valor\": \"valor 2\",\n    \"fatoresConversao\": [\n        \"60873370800b510c054ec8bb\",\n        \"608737d6e4d5b10e0bb8fc0b\",\n        \"608737dde4d5b10e0bb8fc0c\"\n    ]\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -97,7 +185,7 @@
 						"header": [
 							{
 								"key": "Authorization",
-								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJsb2dpbiI6ImxvZ2luIiwibm9tZSI6Im5vbWUiLCJlbWFpbCI6ImVtYWlsIiwiaWF0IjoxNjE5NDc1MzY0LCJleHAiOjE2MTk1NjE3NjR9.b50aMjWsXgQmqohPW2X0zUyvVRYBMXMOcsrjQnZuCRo",
+								"value": "{{token}}",
 								"type": "text"
 							}
 						],
@@ -131,7 +219,7 @@
 						"header": [
 							{
 								"key": "Authorization",
-								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJsb2dpbiI6ImxvZ2luIiwibm9tZSI6Im5vbWUiLCJlbWFpbCI6ImVtYWlsIiwiaWF0IjoxNjE5NDc1MzY0LCJleHAiOjE2MTk1NjE3NjR9.b50aMjWsXgQmqohPW2X0zUyvVRYBMXMOcsrjQnZuCRo",
+								"value": "{{token}}",
 								"type": "text"
 							}
 						],
@@ -152,6 +240,152 @@
 			]
 		},
 		{
+			"name": "Produto Entrada",
+			"item": [
+				{
+					"name": "Consultar Produtos Entrada",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{token}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{host}}/api/produtos-entrada",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"api",
+								"produtos-entrada"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Consultar Produto Entrada por Id",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{token}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{host}}/api/produtos-entrada/6098426729b7910aa745c639",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"api",
+								"produtos-entrada",
+								"6098426729b7910aa745c639"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Incluir Produto Entrada",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{token}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"produto\": \"60873ef9e367c010a52650b6\",\n    \"fatorConversao\": \"60873370800b510c054ec8bb\",\n    \"quantidade\": \"98\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{host}}/api/produtos-entrada",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"api",
+								"produtos-entrada"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Alterar Produto Entrada por Id",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{token}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"produto\": \"6099a4b15b343c120c9905f1\",\n    \"fatorConversao\": \"608737d6e4d5b10e0bb8fc0b\",\n    \"quantidade\": 13\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{host}}/api/produtos-entrada/6098426729b7910aa745c639",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"api",
+								"produtos-entrada",
+								"6098426729b7910aa745c639"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Deletar Produto Entrada por Id",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{token}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{host}}/api/produtos-entrada/609840f7d457c90a68e414c9",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"api",
+								"produtos-entrada",
+								"609840f7d457c90a68e414c9"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
 			"name": "Fator Conversão",
 			"item": [
 				{
@@ -161,7 +395,7 @@
 						"header": [
 							{
 								"key": "Authorization",
-								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJsb2dpbiI6ImxvZ2luIiwibm9tZSI6Im5vbWUiLCJlbWFpbCI6ImVtYWlsIiwiaWF0IjoxNjE5NDc0MjEyLCJleHAiOjE2MTk0NzQ1MTJ9.1BZG56KgiDkC0HYrBJrJZvpUs77AAIQXsTrtts-SXpw",
+								"value": "{{token}}",
 								"type": "text"
 							}
 						],
@@ -185,7 +419,7 @@
 						"header": [
 							{
 								"key": "Authorization",
-								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJsb2dpbiI6ImxvZ2luIiwibm9tZSI6Im5vbWUiLCJlbWFpbCI6ImVtYWlsIiwiaWF0IjoxNjE5NDczMzAwLCJleHAiOjE2MTk0NzM2MDB9.eIOWCxEhGtylfykeZGLB7N4O4JjjzBqDQ0SG12fzRzU",
+								"value": "{{token}}",
 								"type": "text"
 							}
 						],
@@ -210,7 +444,7 @@
 						"header": [
 							{
 								"key": "Authorization",
-								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJsb2dpbiI6ImxvZ2luIiwibm9tZSI6Im5vbWUiLCJlbWFpbCI6ImVtYWlsIiwiaWF0IjoxNjE5NDc0MjEyLCJleHAiOjE2MTk0NzQ1MTJ9.1BZG56KgiDkC0HYrBJrJZvpUs77AAIQXsTrtts-SXpw",
+								"value": "{{token}}",
 								"type": "text"
 							}
 						],
@@ -243,7 +477,7 @@
 						"header": [
 							{
 								"key": "Authorization",
-								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJsb2dpbiI6ImxvZ2luIiwibm9tZSI6Im5vbWUiLCJlbWFpbCI6ImVtYWlsIiwiaWF0IjoxNjE5NDczMzAwLCJleHAiOjE2MTk0NzM2MDB9.eIOWCxEhGtylfykeZGLB7N4O4JjjzBqDQ0SG12fzRzU",
+								"value": "{{token}}",
 								"type": "text"
 							}
 						],
@@ -277,7 +511,7 @@
 						"header": [
 							{
 								"key": "Authorization",
-								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJsb2dpbiI6ImxvZ2luIiwibm9tZSI6Im5vbWUiLCJlbWFpbCI6ImVtYWlsIiwiaWF0IjoxNjE5NDczMzAwLCJleHAiOjE2MTk0NzM2MDB9.eIOWCxEhGtylfykeZGLB7N4O4JjjzBqDQ0SG12fzRzU",
+								"value": "{{token}}",
 								"type": "text"
 							}
 						],
@@ -406,73 +640,6 @@
 								"api",
 								"usuarios",
 								"607f4dd82d7df29198962eb7"
-							]
-						}
-					},
-					"response": []
-				}
-			]
-		},
-		{
-			"name": "Login",
-			"item": [
-				{
-					"name": "Efetuar Login",
-					"request": {
-						"method": "POST",
-						"header": [],
-						"body": {
-							"mode": "raw",
-							"raw": "{\n    \"login\": \"login\",\n    \"senha\": \"senha\"\n}",
-							"options": {
-								"raw": {
-									"language": "json"
-								}
-							}
-						},
-						"url": {
-							"raw": "{{host}}/api/usuarios/login",
-							"host": [
-								"{{host}}"
-							],
-							"path": [
-								"api",
-								"usuarios",
-								"login"
-							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "Efetuar Logout",
-					"request": {
-						"method": "POST",
-						"header": [
-							{
-								"key": "Authorization",
-								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJsb2dpbiI6ImxvZ2luIiwibm9tZSI6Im5vbWUiLCJlbWFpbCI6ImVtYWlsIiwiaWF0IjoxNjE5MjA4NDkzLCJleHAiOjE2MTkyMDg3OTN9.2D5YSKKgZwYkpo-6yWVCTDJeYkZRov7RtxDZwG7KbNA",
-								"type": "text"
-							}
-						],
-						"body": {
-							"mode": "raw",
-							"raw": "",
-							"options": {
-								"raw": {
-									"language": "json"
-								}
-							}
-						},
-						"url": {
-							"raw": "{{host}}/api/usuarios/logout",
-							"host": [
-								"{{host}}"
-							],
-							"path": [
-								"api",
-								"usuarios",
-								"logout"
 							]
 						}
 					},

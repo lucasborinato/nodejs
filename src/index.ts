@@ -2,10 +2,11 @@ import { json } from 'body-parser';
 import * as dotenv from 'dotenv';
 import express from 'express';
 import mongoose from 'mongoose';
-
 import { fatorConversaoRouter } from './routes/fator-conversao';
 import { produtoRouter } from './routes/produto';
+import { produtoEntradaRouter } from './routes/produto-entrada';
 import { usuarioRouter } from './routes/usuario';
+
 
 export let ObjectId = mongoose.Types.ObjectId;
 
@@ -33,9 +34,10 @@ app.use(function (req, res, next) {
     next();
 });
 
+app.use(usuarioRouter);
 app.use(fatorConversaoRouter);
 app.use(produtoRouter);
-app.use(usuarioRouter);
+app.use(produtoEntradaRouter);
 
 const stringDeConexao =
     `mongodb://${process.env.MONGO_IP}:27017/${process.env.BD}`;
