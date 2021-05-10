@@ -11,12 +11,12 @@ const router = express.Router()
 router.post('/api/produtos-entrada', ValidateJWTMiddleware, async (req: Request, res: Response) => {
     try {
 
-        if (!req.body.produto) {
-            throw 'Campo "produto" precisa ser informado';
+        if (!req.body.produtoId) {
+            throw 'Campo "produtoId" precisa ser informado';
         }
 
-        if (!req.body.fatorConversao) {
-            throw 'Campo "fator conversão" precisa ser informado';
+        if (!req.body.fatorConversaoId) {
+            throw 'Campo "fatorConversaoId" precisa ser informado';
         }
 
         if (!req.body.quantidade) {
@@ -27,14 +27,14 @@ router.post('/api/produtos-entrada', ValidateJWTMiddleware, async (req: Request,
 
         let produto;
         try {
-            produto = await Produto.findOne({ '_id': body.produto });
+            produto = await Produto.findOne({ '_id': body.produtoId });
         } catch {
             throw 'Produto não encontrado';
         }
 
         let fatorConversao;
         try {
-            fatorConversao = await FatorConversao.findOne({ '_id': body.fatorConversao });
+            fatorConversao = await FatorConversao.findOne({ '_id': body.fatorConversaoId });
         } catch {
             throw 'Fator conversão não encontrado';
         }
@@ -105,12 +105,12 @@ router.delete('/api/produtos-entrada/:produtoEntradaId', ValidateJWTMiddleware, 
 router.put('/api/produtos-entrada/:produtoEntradaId', ValidateJWTMiddleware, async (req: Request, res: Response) => {
     try {
 
-        if (!req.body.produto) {
-            throw 'Campo "produto" precisa ser informado';
+        if (!req.body.produtoId) {
+            throw 'Campo "produtoId" precisa ser informado';
         }
 
-        if (!req.body.fatorConversao) {
-            throw 'Campo "fator conversão" precisa ser informado';
+        if (!req.body.fatorConversaoId) {
+            throw 'Campo "fatorConversaoId" precisa ser informado';
         }
 
         if (!req.body.quantidade) {
@@ -121,7 +121,7 @@ router.put('/api/produtos-entrada/:produtoEntradaId', ValidateJWTMiddleware, asy
 
         let produto;
         try {
-            produto = await Produto.findOne({ '_id': body.produto });
+            produto = await Produto.findOne({ '_id': body.produtoId });
             body.produto = produto;
         } catch {
             throw 'Produto não encontrado';
@@ -129,14 +129,18 @@ router.put('/api/produtos-entrada/:produtoEntradaId', ValidateJWTMiddleware, asy
 
         let fatorConversao;
         try {
-            fatorConversao = await FatorConversao.findOne({ '_id': body.fatorConversao });
+            fatorConversao = await FatorConversao.findOne({ '_id': body.fatorConversaoId });
             body.fatorConversao = fatorConversao;
         } catch {
             throw 'Fator conversão não encontrado';
         }
 
-        const produtoEntrada = await ProdutoEntrada.updateOne({ '_id': req.params.produtoEntradaId }, body);
-        if (produtoEntrada && (produtoEntrada as any).nModified === 0) {
+        try {
+            const produtoEntrada = await ProdutoEntrada.updateOne({ '_id': req.params.produtoEntradaId }, body);
+            if (produtoEntrada && (produtoEntrada as any).ok === 0) {
+                throw 'Produto entrada não encontrado';
+            }
+        } catch {
             throw 'Produto entrada não encontrado';
         }
 

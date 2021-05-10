@@ -304,7 +304,7 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n    \"produto\": \"60873ef9e367c010a52650b6\",\n    \"fatorConversao\": \"60873370800b510c054ec8bb\",\n    \"quantidade\": \"98\"\n}",
+							"raw": "{\n    \"produtoId\": \"60873ef9e367c010a52650b6\",\n    \"fatorConversaoId\": \"60873370800b510c054ec8bb\",\n    \"quantidade\": \"70\"\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -337,7 +337,7 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n    \"produto\": \"6099a4b15b343c120c9905f1\",\n    \"fatorConversao\": \"608737d6e4d5b10e0bb8fc0b\",\n    \"quantidade\": 13\n}",
+							"raw": "{\n    \"produtoId\": \"6099a4b15b343c120c9905f1\",\n    \"fatorConversaoId\": \"608737d6e4d5b10e0bb8fc0b\",\n    \"quantidade\": 13\n}",
 							"options": {
 								"raw": {
 									"language": "json"
