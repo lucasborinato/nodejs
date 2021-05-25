@@ -5,6 +5,7 @@ import mongoose from 'mongoose';
 import { fatorConversaoRouter } from './routes/fator-conversao';
 import { produtoRouter } from './routes/produto';
 import { produtoEntradaRouter } from './routes/produto-entrada';
+import { produtoSaidaRouter } from './routes/produto-saida';
 import { usuarioRouter } from './routes/usuario';
 
 
@@ -38,6 +39,7 @@ app.use(usuarioRouter);
 app.use(fatorConversaoRouter);
 app.use(produtoRouter);
 app.use(produtoEntradaRouter);
+app.use(produtoSaidaRouter);
 
 const stringDeConexao =
     `mongodb://${process.env.MONGO_IP}:27017/${process.env.BD}`;

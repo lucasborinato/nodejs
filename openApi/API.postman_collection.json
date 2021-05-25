@@ -386,6 +386,152 @@
 			]
 		},
 		{
+			"name": "Produto Saida",
+			"item": [
+				{
+					"name": "Consultar Produtos Saida",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{token}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{host}}/api/produtos-saida",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"api",
+								"produtos-saida"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Consultar Produto Saida por Id",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{token}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{host}}/api/produtos-saida/60ad5b6c0b0d511effbf2cdb",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"api",
+								"produtos-saida",
+								"60ad5b6c0b0d511effbf2cdb"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Incluir Produto Saida",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{token}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"produtoId\": \"60873ef9e367c010a52650b6\",\n    \"fatorConversaoId\": \"60873370800b510c054ec8bb\",\n    \"quantidade\": \"70\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{host}}/api/produtos-saida",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"api",
+								"produtos-saida"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Alterar Produto Saida por Id",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{token}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"produtoId\": \"6099a4b15b343c120c9905f1\",\n    \"fatorConversaoId\": \"608737d6e4d5b10e0bb8fc0b\",\n    \"quantidade\": 18\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{host}}/api/produtos-saida/60ad5b6c0b0d511effbf2cdb",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"api",
+								"produtos-saida",
+								"60ad5b6c0b0d511effbf2cdb"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Deletar Produto Entrada por Id",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{token}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{host}}/api/produtos-saida/60ad5b6c0b0d511effbf2cdb",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"api",
+								"produtos-saida",
+								"60ad5b6c0b0d511effbf2cdb"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
 			"name": "Fator Conversão",
 			"item": [
 				{

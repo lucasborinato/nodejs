@@ -3,12 +3,12 @@ import { buildResponse } from '../infra/buildResponse';
 import ValidateJWTMiddleware from '../infra/validate-jwt.middleware';
 import { FatorConversao } from '../models/fator-conversao';
 import { Produto } from '../models/produto';
-import { IProdutoEntrada, ProdutoEntrada } from '../models/produto-entrada';
+import { IProdutoSaida, ProdutoSaida } from '../models/produto-saida';
 
 
 const router = express.Router()
 
-router.post('/api/produtos-entrada', ValidateJWTMiddleware, async (req: Request, res: Response) => {
+router.post('/api/produtos-saida', ValidateJWTMiddleware, async (req: Request, res: Response) => {
     try {
 
         if (!req.body.produtoId) {
@@ -39,14 +39,14 @@ router.post('/api/produtos-entrada', ValidateJWTMiddleware, async (req: Request,
             throw 'Fator conversão não encontrado';
         }
 
-        const produtoEntrada: IProdutoEntrada = new ProdutoEntrada({
+        const produtoSaida: IProdutoSaida = new ProdutoSaida({
             produto,
             fatorConversao,
             quantidade: body.quantidade
         });
 
-        await produtoEntrada.save();
-        buildResponse(res, { msg: 'Produto entrada incluído com sucesso' });
+        await produtoSaida.save();
+        buildResponse(res, { msg: 'Produto saída incluído com sucesso' });
 
     } catch (err) {
         console.log('erro', err);
@@ -55,54 +55,54 @@ router.post('/api/produtos-entrada', ValidateJWTMiddleware, async (req: Request,
     }
 });
 
-router.get('/api/produtos-entrada', ValidateJWTMiddleware, async (req: Request, res: Response) => {
+router.get('/api/produtos-saida', ValidateJWTMiddleware, async (req: Request, res: Response) => {
     try {
-        const produtosEntrada = await ProdutoEntrada.find();
-        buildResponse(res, { dados: produtosEntrada });
+        const produtosSaida = await ProdutoSaida.find();
+        buildResponse(res, { dados: produtosSaida });
     } catch (err) {
         buildResponse(res, { err });
     }
 });
 
-router.get('/api/produtos-entrada/:produtoEntradaId', ValidateJWTMiddleware, async (req: Request, res: Response) => {
+router.get('/api/produtos-saida/:produtoSaidaId', ValidateJWTMiddleware, async (req: Request, res: Response) => {
     try {
-        let produtoEntrada;
+        let produtoSaida;
         try {
-            produtoEntrada = await ProdutoEntrada.findOne({ '_id': req.params.produtoEntradaId });
+            produtoSaida = await ProdutoSaida.findOne({ '_id': req.params.produtoSaidaId });
 
-            if (!produtoEntrada) {
-                throw 'Produto entrada não encontrado';
+            if (!produtoSaida) {
+                throw 'Produto saída não encontrado';
             }
         } catch {
-            throw 'Produto entrada não encontrado';
+            throw 'Produto saída não encontrado';
         }
 
-        buildResponse(res, { dados: produtoEntrada });
+        buildResponse(res, { dados: produtoSaida });
 
     } catch (err) {
         buildResponse(res, { err });
     }
 });
 
-router.delete('/api/produtos-entrada/:produtoEntradaId', ValidateJWTMiddleware, async (req: Request, res: Response) => {
+router.delete('/api/produtos-saida/:produtoSaidaId', ValidateJWTMiddleware, async (req: Request, res: Response) => {
     try {
         try {
-            const produtoEntrada = await ProdutoEntrada.deleteOne({ '_id': req.params.produtoEntradaId })
+            const produtoSaida = await ProdutoSaida.deleteOne({ '_id': req.params.produtoSaidaId })
 
-            if (produtoEntrada && (produtoEntrada as any).deletedCount === 0) {
-                throw 'Produto entrada não encontrado';
+            if (produtoSaida && (produtoSaida as any).deletedCount === 0) {
+                throw 'Produto saida não encontrado';
             }
         } catch {
-            throw 'Produto entrada não encontrado';
+            throw 'Produto saída não encontrado';
         }
 
-        buildResponse(res, { msg: 'Produto entrada excluído com sucesso' });
+        buildResponse(res, { msg: 'Produto saída excluído com sucesso' });
     } catch (err) {
         buildResponse(res, { err });
     }
 });
 
-router.put('/api/produtos-entrada/:produtoEntradaId', ValidateJWTMiddleware, async (req: Request, res: Response) => {
+router.put('/api/produtos-saida/:produtoSaidaId', ValidateJWTMiddleware, async (req: Request, res: Response) => {
     try {
 
         if (!req.body.produtoId) {
@@ -136,12 +136,12 @@ router.put('/api/produtos-entrada/:produtoEntradaId', ValidateJWTMiddleware, asy
         }
 
         try {
-            const produtoEntrada = await ProdutoEntrada.updateOne({ '_id': req.params.produtoEntradaId }, body);
-            if (produtoEntrada && (produtoEntrada as any).ok === 0) {
-                throw 'Produto entrada não encontrado';
+            const produtoSaida = await ProdutoSaida.updateOne({ '_id': req.params.produtoSaidaId }, body);
+            if (produtoSaida && (produtoSaida as any).ok === 0) {
+                throw 'Produto saída não encontrado';
             }
         } catch {
-            throw 'Produto entrada não encontrado';
+            throw 'Produto saída não encontrado';
         }
 
         buildResponse(res, { msg: 'Produto atualizado com sucesso' });
@@ -150,4 +150,4 @@ router.put('/api/produtos-entrada/:produtoEntradaId', ValidateJWTMiddleware, asy
     }
 });
 
-export { router as produtoEntradaRouter };
+export { router as produtoSaidaRouter };
