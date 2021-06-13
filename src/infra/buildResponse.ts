@@ -20,13 +20,13 @@ function buildResponse(res: Response, entrada: any) {
 
     if (entrada?.msg) {
         saida.mensagem = entrada.msg;
-    } 
+    }
 
     if (entrada?.dados) {
-        saida.dados = entrada.dados;
-    } 
-    
+        saida = entrada.dados;
+    }
+
     return res.status(httpStatus).json(saida);
 };
 
-export { buildResponse }
+export { buildResponse };

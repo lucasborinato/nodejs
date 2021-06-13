@@ -1,8 +1,8 @@
 import express, { Request, Response } from 'express';
-
 import { buildResponse } from '../infra/buildResponse';
 import ValidateJWTMiddleware from '../infra/validate-jwt.middleware';
 import { FatorConversao, IFatorConversao } from '../models/fator-conversao';
+
 
 const router = express.Router()
 
@@ -90,4 +90,4 @@ router.put('/api/fatoresConversao/:fatorConversaoId', ValidateJWTMiddleware, asy
     }
 });
 
-export { router as fatorConversaoRouter }
+export { router as fatorConversaoRouter };
